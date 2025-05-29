@@ -1,12 +1,7 @@
-
-import React from 'react'
+import React from 'react';
 
 const LoginLost = () => {
-  return (
-    <div>
-      Lost
-    </div>
-  )
-}
+  return <div>Lost</div>;
+};
 
-export default LoginLost
+export default LoginLost;

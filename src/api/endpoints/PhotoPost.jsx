@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const PhotoPost = () => {
   const [token, setToken] = React.useState('');
   const [nome, setNome] = React.useState('');
@@ -25,11 +24,11 @@ const PhotoPost = () => {
       },
       body: formData,
     })
-      .then((response) => {
+      .then(response => {
         console.log(response);
         return response.json();
       })
-      .then((json) => {
+      .then(json => {
         console.log(json);
         return json;
       });

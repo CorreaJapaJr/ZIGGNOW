@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const LoginReset = () => {
-  return (
-    <div>
-      Atim
-    </div>
-  )
-}
+  return <div>Atim</div>;
+};
 
-export default LoginReset
+export default LoginReset;

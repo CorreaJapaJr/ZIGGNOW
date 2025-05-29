@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react';
 
 const TokenPost = () => {
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [token, setToken] = React.useState("");
+  const [username, setUsername] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [token, setToken] = React.useState('');
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    fetch("https://dogsapi.origamid.dev/json/jwt-auth/v1/token", {
-      method: "POST",
+    fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         username,
@@ -19,11 +19,11 @@ const TokenPost = () => {
         password,
       }),
     })
-      .then((response) => {
+      .then(response => {
         console.log(response);
         return response.json();
       })
-      .then((json) => {
+      .then(json => {
         console.log(json);
         setToken(json.token);
         return json;
@@ -44,13 +44,9 @@ const TokenPost = () => {
           value={password}
           onChange={({ target }) => setPassword(target.value)}
         ></input>
-        <input
-          type="text"
-          value={token}
-          onChange={({ target }) => setToken(target.value)}
-        ></input>
+        <input type="text" value={token} onChange={({ target }) => setToken(target.value)}></input>
         <button> Enviar </button>
-        <p style={{ wordBreak: "break0all" }}>{token}</p>
+        <p style={{ wordBreak: 'break0all' }}>{token}</p>
       </form>
     </div>
   );

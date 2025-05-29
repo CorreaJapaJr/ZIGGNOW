@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react';
 
 const UserPost = () => {
-  const [username, setUsername] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [username, setUsername] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    fetch("https://dogsapi.origamid.dev/json/api/user", {
-      method: "POST",
+    fetch('https://dogsapi.origamid.dev/json/api/user', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         username,
@@ -19,11 +19,11 @@ const UserPost = () => {
         password,
       }),
     })
-      .then((response) => {
+      .then(response => {
         console.log(response);
         return response.json();
       })
-      .then((json) => {
+      .then(json => {
         console.log(json);
         return json;
       });
@@ -37,11 +37,7 @@ const UserPost = () => {
           value={username}
           onChange={({ target }) => setUsername(target.value)}
         ></input>
-        <input
-          type="text"
-          value={email}
-          onChange={({ target }) => setEmail(target.value)}
-        ></input>
+        <input type="text" value={email} onChange={({ target }) => setEmail(target.value)}></input>
         <input
           type="text"
           value={password}
