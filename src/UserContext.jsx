@@ -20,7 +20,7 @@ export const UserStorage = ({ children }) => {
       window.localStorage.removeItem('token');
       navigate('/login');
     },
-    [navigate],
+    [navigate]
   );
 
   async function getUser(token) {
@@ -61,23 +61,21 @@ export const UserStorage = ({ children }) => {
           const response = await fetch(url, options);
           if (!response.ok) throw new Error('Token inválido');
           await getUser(token);
-        // eslint-disable-next-line no-unused-vars
+          // eslint-disable-next-line no-unused-vars
         } catch (err) {
           userLogout();
         } finally {
           setLoading(false);
         }
       } else {
-        setLogin(false)
+        setLogin(false);
       }
     }
     autoLogin();
   }, [userLogout]);
 
   return (
-    <UserContext.Provider
-      value={{ userLogin, userLogout, data, error, loading, login }}
-    >
+    <UserContext.Provider value={{ userLogin, userLogout, data, error, loading, login }}>
       {children}
     </UserContext.Provider>
   );
