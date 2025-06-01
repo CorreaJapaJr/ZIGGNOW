@@ -8,13 +8,18 @@ import Login from './Components/Login/Login';
 import { UserStorage } from './UserContext';
 import User from './components/User/User';
 import ProtectedRoute from './components/Helper/ProtectedRoute';
+import Photo from './components/PhotoContent/Photo';
+import UserProfile from './components/User/UserProfile';
+import NotFound from './NotFound';
+
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       <BrowserRouter>
         <UserStorage>
           <Header />
+          <main className='AppBody'>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login/*" element={<Login />} />
@@ -26,7 +31,11 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path="/foto/:id" element={<Photo />} />
+            <Route path="/perfil/:user" element={<UserProfile />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
+          </main>
           <Footer />
         </UserStorage>
       </BrowserRouter>
